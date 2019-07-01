@@ -2,12 +2,18 @@
 const express = require("express")
 
 const router = require('./routers/index.js')
+
+const ejs = require('ejs')
 // 创建应用
 const app = express()
 // 添加服务器端口并监听
 app.listen(3000, () => {
     console.log('http://127.0.0.1:3000')
 })
+app.set('view engine', 'ejs')
+app.set('views', 'views')
+
+
 app.use('/assets', express.static('assets'))
 app.use('/uploads', express.static('uploads'))
 // 添加路由配置
